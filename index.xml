@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zdeněk Brabec</title>
+    <link>https://zdebra.github.io/</link>
+    <description>Recent content on Zdeněk Brabec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 06 Aug 2017 15:40:35 +0200</lastBuildDate>
+    
+	<atom:link href="https://zdebra.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Programování bez frameworku</title>
+      <link>https://zdebra.github.io/blog/programov%C3%A1n%C3%AD-bez-frameworku/</link>
+      <pubDate>Sun, 06 Aug 2017 15:40:35 +0200</pubDate>
+      
+      <guid>https://zdebra.github.io/blog/programov%C3%A1n%C3%AD-bez-frameworku/</guid>
+      <description>Všichni jedou na goučku Dočetli jste se o novém super jazyce od Googlu. Tvrdili vám, že spousta firem v něm píše své core, production critical aplikace - jako třeba:
+ Google (Kubernetes, YouTube, dl.google.com) Docker Dropbox DigitalOcean Twitter (docela zajímavé čtení - link)  a další
+Stejní lidé vám řekli, že nejlepší je používat go bez těžkopadných frameworků, jichž jsou ostatní jazyky plné a že je mnohem lepší použít využít bohatou standardní knihovnu, kterou udržují samotní tvůrci.</description>
+    </item>
+    
+  </channel>
+</rss>
