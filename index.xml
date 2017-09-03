@@ -6,10 +6,20 @@
     <description>Recent content on Zdeněk Brabec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 06 Aug 2017 15:40:35 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 03 Sep 2017 16:45:55 +0200</lastBuildDate>
     
 	<atom:link href="https://www.zdebra.cz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Switch na steroidech</title>
+      <link>https://www.zdebra.cz/blog/switch-na-steroidech/</link>
+      <pubDate>Sun, 03 Sep 2017 16:45:55 +0200</pubDate>
+      
+      <guid>https://www.zdebra.cz/blog/switch-na-steroidech/</guid>
+      <description>Taky vám syntax switche v jazycích s C-like syntaxí přišel vždycky podivný? Jako kdyby to do jazyka vůbec napatřilo.
+int x = 4; switch (x) { case 0: break; case 4: foo(); default: bar(); break; }  Nejvíce mě tahá to, že v jazyce, kde se jako prvek, který seskupuje bloky kódu používají složené závorky, najednou použije něco jiného. Jednotlivé bloky s případy (case) se oddělují slovem break, které lze vynechat a nechat tak vykonávání kódu probublat přes několik case.</description>
+    </item>
     
     <item>
       <title>Programování bez frameworku</title>
