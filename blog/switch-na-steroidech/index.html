@@ -58,11 +58,11 @@ int x = 4; switch (x) { case 0: break; case 4: foo(); default: bar(); break; }  
 
 
     
-    <link rel="stylesheet" href="https://www.zdebra.cz/css/reset.css?t=2017-09-03%2018%3a11%3a08.107959584%20%2b0200%20CEST">
-    <link rel="stylesheet" href="https://www.zdebra.cz/css/pygments.css?t=2017-09-03%2018%3a11%3a08.107959584%20%2b0200%20CEST">
-    <link rel="stylesheet" href="https://www.zdebra.cz/css/main.css?t=2017-09-03%2018%3a11%3a08.107959584%20%2b0200%20CEST">
+    <link rel="stylesheet" href="https://www.zdebra.cz/css/reset.css?t=2017-09-03%2018%3a11%3a54.335295571%20%2b0200%20CEST">
+    <link rel="stylesheet" href="https://www.zdebra.cz/css/pygments.css?t=2017-09-03%2018%3a11%3a54.335295571%20%2b0200%20CEST">
+    <link rel="stylesheet" href="https://www.zdebra.cz/css/main.css?t=2017-09-03%2018%3a11%3a54.335295571%20%2b0200%20CEST">
     
-        <link rel="stylesheet" href="https://www.zdebra.cz/css/override.css?t=2017-09-03%2018%3a11%3a08.107959584%20%2b0200%20CEST">
+        <link rel="stylesheet" href="https://www.zdebra.cz/css/override.css?t=2017-09-03%2018%3a11%3a54.335295571%20%2b0200%20CEST">
     
 
 
@@ -320,6 +320,8 @@ func typeName(v interface{}) string {
 <h1 id="shrnutí">Shrnutí</h1>
 
 <p>Switch v go je nesmírně silný nástroj, který s chutí využívám. Nemusíte psát if-ifelse chainy a ani neustale ukončovat case pomocí výrazu break. Go není jediný jazyk, který přehodnotil práci se switchem. Rust a jeho zajímavý <a href="https://rustbyexample.com/flow_control/match.html">match</a>, nebo swift s jeho <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html">implementací</a> switche řeší podobný problém. Oba přidávají například intervaly (<code>case 100..&lt;1000:</code>), což mi příjde zbytečné, protože se jedná o náhradu za <code>x&gt;100 &amp;&amp; x&lt;1000</code>.</p>
+
+<p>Více detailů najdete ve <a href="https://golang.org/ref/spec#Switch_statements">specifikaci</a>.</p>
 
                 <br>
 		<p><a href="https://www.zdebra.cz/blog/">Back to posts</a></p>
