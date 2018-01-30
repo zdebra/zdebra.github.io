@@ -16,7 +16,7 @@ Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte z
 <meta property="og:description" content="Lambda je služba od AWS, která slouží ke spouštění funkcí v cloudu. Jedná se o tzv. serverless architekturu, kdy k vykonání určitého kódu nepotřebujete složitě vytáčet virtuální mašinu. Namísto toho nadefinujete trigger (spouštěč) a svou funkci. Alternativou od jiného poskytovatele, než je Amazon, jsou Google Cloud Functions případě Azure Functions od Microsoftu.
 Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte za výpočetní čas v kombinaci s využitou pamětí vaší funkce." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zdebra.github.io/blog/aws-lambda-a-golang/" />
+<meta property="og:url" content="https://www.zdebra.cz/blog/aws-lambda-a-golang/" />
 
 
 
@@ -40,7 +40,7 @@ Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte z
      AWS Lambda a Golang 
 
 </title>
-<link rel="canonical" href="https://zdebra.github.io/blog/aws-lambda-a-golang/">
+<link rel="canonical" href="https://www.zdebra.cz/blog/aws-lambda-a-golang/">
 
 
 
@@ -58,11 +58,11 @@ Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte z
 
 
     
-    <link rel="stylesheet" href="https://zdebra.github.io/css/reset.css?t=2018-01-30%2020%3a31%3a15.520732%20%2b0100%20CET">
-    <link rel="stylesheet" href="https://zdebra.github.io/css/pygments.css?t=2018-01-30%2020%3a31%3a15.520732%20%2b0100%20CET">
-    <link rel="stylesheet" href="https://zdebra.github.io/css/main.css?t=2018-01-30%2020%3a31%3a15.520732%20%2b0100%20CET">
+    <link rel="stylesheet" href="https://www.zdebra.cz/css/reset.css?t=2018-01-30%2020%3a51%3a58.971205%20%2b0100%20CET">
+    <link rel="stylesheet" href="https://www.zdebra.cz/css/pygments.css?t=2018-01-30%2020%3a51%3a58.971205%20%2b0100%20CET">
+    <link rel="stylesheet" href="https://www.zdebra.cz/css/main.css?t=2018-01-30%2020%3a51%3a58.971205%20%2b0100%20CET">
     
-        <link rel="stylesheet" href="https://zdebra.github.io/css/override.css?t=2018-01-30%2020%3a31%3a15.520732%20%2b0100%20CET">
+        <link rel="stylesheet" href="https://www.zdebra.cz/css/override.css?t=2018-01-30%2020%3a51%3a58.971205%20%2b0100%20CET">
     
 
 
@@ -70,7 +70,7 @@ Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte z
 
 <link rel="shortcut icon"
 
-    href="https://zdebra.github.io/img/favicon.ico"
+    href="https://www.zdebra.cz/img/favicon.ico"
 
 >
 
@@ -98,16 +98,16 @@ Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte z
                     
                 
                 
-                <a href="https://zdebra.github.io/"><img class="avatar" src="https://zdebra.github.io/img/profile.jpg" srcset="https://zdebra.github.io/img/profile.jpg 1x"></a>
+                <a href="https://www.zdebra.cz/"><img class="avatar" src="https://www.zdebra.cz/img/profile.jpg" srcset="https://www.zdebra.cz/img/profile.jpg 1x"></a>
             
-            <a href="https://zdebra.github.io/"><div class="name">Zdeněk Brabec</div></a>
+            <a href="https://www.zdebra.cz/"><div class="name">Zdeněk Brabec</div></a>
             
             <nav>
                 <ul>
                     
-                        <li class="nav-blog"><a href="https://zdebra.github.io/blog/"><span>Blog</span></a></li>
+                        <li class="nav-blog"><a href="https://www.zdebra.cz/blog/"><span>Blog</span></a></li>
                     
-                        <li class="nav-about"><a href="https://zdebra.github.io/about/"><span>About</span></a></li>
+                        <li class="nav-about"><a href="https://www.zdebra.cz/about/"><span>About</span></a></li>
                     
                 </ul>
             </nav>
@@ -120,33 +120,33 @@ Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte z
         <div class="content">
 
         
-            <a href="//github.com/zdebra" target="_blank" rel="noopener"><img class="icon" src="https://zdebra.github.io/img/github.svg" alt="github" /></a>
+            <a href="//github.com/zdebra" target="_blank" rel="noopener"><img class="icon" src="https://www.zdebra.cz/img/github.svg" alt="github" /></a>
         
 
         
-            <a href="//twitter.com/iamzdebra" target="_blank" rel="noopener"><img class="icon" src="https://zdebra.github.io/img/twitter.svg" alt="twitter" /></a>
-        
-
-        
-
-        
-            <a href="//linkedin.com/in/zdenekbrabec" target="_blank" rel="noopener"><img class="icon" src="https://zdebra.github.io/img/linkedin.svg" alt="linkedin" /></a>
+            <a href="//twitter.com/iamzdebra" target="_blank" rel="noopener"><img class="icon" src="https://www.zdebra.cz/img/twitter.svg" alt="twitter" /></a>
         
 
         
 
         
-            <a href="//instagram.com/zdenek_b" target="_blank" rel="noopener"><img class="icon" src="https://zdebra.github.io/img/instagram.svg" alt="instagram" /></a>
+            <a href="//linkedin.com/in/zdenekbrabec" target="_blank" rel="noopener"><img class="icon" src="https://www.zdebra.cz/img/linkedin.svg" alt="linkedin" /></a>
         
 
         
 
         
-            <a href="mailto:zd.brabec@gmail.com"><img class="icon" src="https://zdebra.github.io/img/email.svg" alt="email" /></a>
+            <a href="//instagram.com/zdenek_b" target="_blank" rel="noopener"><img class="icon" src="https://www.zdebra.cz/img/instagram.svg" alt="instagram" /></a>
         
 
         
-            <a href="https://zdebra.github.io/index.xml"><img class="icon" src="https://zdebra.github.io/img/rss.svg" alt="rss" /></a>
+
+        
+            <a href="mailto:zd.brabec@gmail.com"><img class="icon" src="https://www.zdebra.cz/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.zdebra.cz/index.xml"><img class="icon" src="https://www.zdebra.cz/img/rss.svg" alt="rss" /></a>
         
         
         </div>
@@ -165,7 +165,7 @@ Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte z
 
 </div>
 
-                    <div class="initials"><a href="https://zdebra.github.io/">ad</a></div>
+                    <div class="initials"><a href="https://www.zdebra.cz/">ad</a></div>
                 </div>
                 <div class="meta">
                     
@@ -268,7 +268,7 @@ func main() {
 <p>Lambda je super jednoduchý, levný a bezúdržbový způsob jak vykonat nějaký kód. Zkompilovaná binárka golangu je navíc o dost rychlejší, než spouštění funkcí v jiných jazycích.</p>
 
                 <br>
-		<p><a href="https://zdebra.github.io/blog/">Back to posts</a></p>
+		<p><a href="https://www.zdebra.cz/blog/">Back to posts</a></p>
             </div>
             <br>
             <div class="disqus">
