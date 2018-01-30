@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on Zdeněk Brabec</title>
-    <link>https://www.zdebra.cz/about/</link>
+    <link>https://zdebra.github.io/about/</link>
     <description>Recent content in About on Zdeněk Brabec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 06 Aug 2017 06:42:21 -0700</lastBuildDate>
     
-	<atom:link href="https://www.zdebra.cz/about/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zdebra.github.io/about/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

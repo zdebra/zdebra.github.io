@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Zdeněk Brabec</title>
-    <link>https://www.zdebra.cz/blog/</link>
+    <link>https://zdebra.github.io/blog/</link>
     <description>Recent content in Blog on Zdeněk Brabec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 03 Sep 2017 16:45:55 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jan 2018 16:45:55 +0200</lastBuildDate>
     
-	<atom:link href="https://www.zdebra.cz/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zdebra.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Switch na steroidech</title>
-      <link>https://www.zdebra.cz/blog/switch-na-steroidech/</link>
-      <pubDate>Sun, 03 Sep 2017 16:45:55 +0200</pubDate>
+      <title>AWS Lambda a Golang</title>
+      <link>https://zdebra.github.io/blog/aws-lambda-a-golang/</link>
+      <pubDate>Sun, 28 Jan 2018 16:45:55 +0200</pubDate>
       
-      <guid>https://www.zdebra.cz/blog/switch-na-steroidech/</guid>
-      <description>Taky vám syntax switche v jazycích s C-like syntaxí přišel vždycky podivný? Jako kdyby to do jazyka vůbec napatřilo.
-int x = 4; switch (x) { case 0: break; case 4: foo(); default: bar(); break; }  Nejvíce mě tahá to, že v jazyce, kde se jako prvek, který seskupuje bloky kódu používají složené závorky, najednou použije něco jiného. Jednotlivé bloky s případy (case) se oddělují slovem break, které lze vynechat a nechat tak vykonávání kódu probublat přes několik case.</description>
+      <guid>https://zdebra.github.io/blog/aws-lambda-a-golang/</guid>
+      <description>Lambda je služba od AWS, která slouží ke spouštění funkcí v cloudu. Jedná se o tzv. serverless architekturu, kdy k vykonání určitého kódu nepotřebujete složitě vytáčet virtuální mašinu. Namísto toho nadefinujete trigger (spouštěč) a svou funkci. Alternativou od jiného poskytovatele, než je Amazon, jsou Google Cloud Functions případě Azure Functions od Microsoftu.
+Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte za výpočetní čas v kombinaci s využitou pamětí vaší funkce.</description>
     </item>
     
     <item>
       <title>Programování bez frameworku</title>
-      <link>https://www.zdebra.cz/blog/programov%C3%A1n%C3%AD-bez-frameworku/</link>
+      <link>https://zdebra.github.io/blog/programov%C3%A1n%C3%AD-bez-frameworku/</link>
       <pubDate>Sun, 06 Aug 2017 15:40:35 +0200</pubDate>
       
-      <guid>https://www.zdebra.cz/blog/programov%C3%A1n%C3%AD-bez-frameworku/</guid>
+      <guid>https://zdebra.github.io/blog/programov%C3%A1n%C3%AD-bez-frameworku/</guid>
       <description>Všichni jedou na goučku Dočetli jste se o novém super jazyce od Googlu. Tvrdili vám, že spousta firem v něm píše své core, production critical aplikace - jako třeba:
  Google (Kubernetes, YouTube, dl.google.com) Docker Dropbox DigitalOcean Twitter (docela zajímavé čtení - link)  a další
 Stejní lidé vám řekli, že nejlepší je používat go bez těžkopadných frameworků, jichž jsou ostatní jazyky plné a že je mnohem lepší použít využít bohatou standardní knihovnu, kterou udržují samotní tvůrci.</description>

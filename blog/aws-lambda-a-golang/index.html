@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Zdeněk Brabec">
+<meta name="description" content="Lambda je služba od AWS, která slouží ke spouštění funkcí v cloudu. Jedná se o tzv. serverless architekturu, kdy k vykonání určitého kódu nepotřebujete složitě vytáčet virtuální mašinu. Namísto toho nadefinujete trigger (spouštěč) a svou funkci. Alternativou od jiného poskytovatele, než je Amazon, jsou Google Cloud Functions případě Azure Functions od Microsoftu.
+Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte za výpočetní čas v kombinaci s využitou pamětí vaší funkce.">
+
+<meta property="og:title" content="AWS Lambda a Golang" />
+<meta property="og:description" content="Lambda je služba od AWS, která slouží ke spouštění funkcí v cloudu. Jedná se o tzv. serverless architekturu, kdy k vykonání určitého kódu nepotřebujete složitě vytáčet virtuální mašinu. Namísto toho nadefinujete trigger (spouštěč) a svou funkci. Alternativou od jiného poskytovatele, než je Amazon, jsou Google Cloud Functions případě Azure Functions od Microsoftu.
+Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte za výpočetní čas v kombinaci s využitou pamětí vaší funkce." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zdebra.github.io/blog/aws-lambda-a-golang/" />
+
+
+
+<meta property="article:published_time" content="2018-01-28T16:45:55&#43;02:00"/>
+<meta property="article:modified_time" content="2018-01-28T16:45:55&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     AWS Lambda a Golang 
+
+</title>
+<link rel="canonical" href="https://zdebra.github.io/blog/aws-lambda-a-golang/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/idea.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://zdebra.github.io/css/reset.css?t=2018-01-30%2020%3a28%3a19.091601%20%2b0100%20CET">
+    <link rel="stylesheet" href="https://zdebra.github.io/css/pygments.css?t=2018-01-30%2020%3a28%3a19.091601%20%2b0100%20CET">
+    <link rel="stylesheet" href="https://zdebra.github.io/css/main.css?t=2018-01-30%2020%3a28%3a19.091601%20%2b0100%20CET">
+    
+        <link rel="stylesheet" href="https://zdebra.github.io/css/override.css?t=2018-01-30%2020%3a28%3a19.091601%20%2b0100%20CET">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://zdebra.github.io/img/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://zdebra.github.io/"><img class="avatar" src="https://zdebra.github.io/img/profile.jpg" srcset="https://zdebra.github.io/img/profile.jpg 1x"></a>
+            
+            <a href="https://zdebra.github.io/"><div class="name">Zdeněk Brabec</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://zdebra.github.io/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://zdebra.github.io/about/"><span>About</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/zdebra" target="_blank" rel="noopener"><img class="icon" src="https://zdebra.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/iamzdebra" target="_blank" rel="noopener"><img class="icon" src="https://zdebra.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/zdenekbrabec" target="_blank" rel="noopener"><img class="icon" src="https://zdebra.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="//instagram.com/zdenek_b" target="_blank" rel="noopener"><img class="icon" src="https://zdebra.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:zd.brabec@gmail.com"><img class="icon" src="https://zdebra.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://zdebra.github.io/index.xml"><img class="icon" src="https://zdebra.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    AWS Lambda a Golang
+
+</div>
+
+                    <div class="initials"><a href="https://zdebra.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sun Jan 28 2018 16:45:55 &#43;0200'>Jan 28, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p><a href="https://aws.amazon.com/lambda/">Lambda</a> je služba od AWS, která slouží ke spouštění funkcí v cloudu. Jedná se o tzv. serverless architekturu, kdy k vykonání určitého kódu nepotřebujete složitě vytáčet virtuální mašinu. Namísto toho nadefinujete trigger (spouštěč) a svou funkci. Alternativou od jiného poskytovatele, než je Amazon, jsou <a href="https://cloud.google.com/functions/docs/">Google Cloud Functions</a> případě <a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions</a> od Microsoftu.</p>
+
+<p>Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte za výpočetní čas v kombinaci s využitou pamětí vaší funkce. Amazon dokonce do určitého počtu requestů nechce vůbec nic. Nevýhodou je horší startup time, tedy čas, než AWS alokuje prostor pro vaší funkci.</p>
+
+<h1 id="lambda-funkce">Lambda funkce</h1>
+
+<p>Tenhle článek vznikl, protože Amazon nedávno oznámil oficiální poporu jazyka Go pro Lambdu. Ten se tak přidává k již podporovaným
+NodeJS, Pythonu, Javě a C#. Golang je kompilovaný, takže vaší funkci dodáte ve zkompilované binárce.</p>
+
+<p>Dle <a href="https://aws.amazon.com/blogs/compute/announcing-go-support-for-aws-lambda/">manuálu</a> stačí importnout <a href="https://github.com/aws/aws-lambda-go">github.com/aws/aws-lambda-go</a> a v main fuknci spustit <code>lamda.Start(handler)</code>, kde handler je libovolná funkce, pro kterou platí:
+1. žádný nebo 1 vstupní parametr (případně 1 vstupní parametr a <code>context.Context</code>)
+2. žádný výstup nebo <code>error</code> (případně <code>error</code> a jeden výstupní parametr)</p>
+
+<h1 id="využítí-lambdy">Využítí Lambdy</h1>
+
+<p>Jako příklad využítí ukážu využití lambdy jako intergraci Healhchecku se Slackem. Healthcheck je služba od AWS, která sleduje, jestli jsou vaše servery naživu. Můžete si nadefinovat různé alarmy - například aby se alarm rozezvučel při vysoké latenci při komunikaci s vaším endpointem, nebo při určitých HTTP statusech. Konfigurací je mnoho.</p>
+
+<h2 id="klikání-v-konzoli">Klikání v konzoli</h2>
+
+<p>V AWS konzoli pod <a href="https://aws.amazon.com/route53/">Route 53</a> vyrobte nový Healthcheck a v první části wizzardu mu nadefinujte kýžené atributy. V dalším kroku nadefinujete kam se případný alarm bude hlásit. K tomu využijeme další AWS službu, <a href="https://aws.amazon.com/sns/">Simple Notifications Service</a>. SNS je služba, využívající publish/subsribe pattern. V našem případě je v SNS vytvořený určitý topic, do kterého Healhcheck zapíše, pokud se splní nějaká podmínka nadefinovaného Alarmu. To právě uděláme v druhém kroku onoho wizzardu, takže do SNS Dashboardu ani nemusíme chodit.</p>
+
+<p>Zbytek naklikáme v dashboardu Lambdy. Vytvoříme novou funkci a jako trigger zvolíme SNS a v konfiguraci navolíme topic, který vygeneroval Healthcheck wizzard.</p>
+
+<h2 id="implementace-funkce">Implementace funkce</h2>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;errors&quot;
+	&quot;log&quot;
+
+	&quot;bytes&quot;
+	&quot;encoding/json&quot;
+	&quot;fmt&quot;
+	&quot;github.com/aws/aws-lambda-go/lambda&quot;
+	&quot;net/http&quot;
+	&quot;os&quot;
+)
+
+const slackWebhookKey = &quot;WEBHOOK_URL&quot;
+
+var (
+	ErrInvalidStatusCode    = errors.New(&quot;invalid status code&quot;)
+	ErrSlackWebhookNotFound = errors.New(&quot;slack webhook not found in env variables&quot;)
+)
+
+func Handler(request SNSMessage) error {
+	log.Printf(&quot;processing message from SNS: %v\n&quot;, request)
+	if err := request.Validate(); err != nil {
+		return err
+	}
+	slackURL, found := os.LookupEnv(slackWebhookKey)
+	if !found {
+		return ErrSlackWebhookNotFound
+	}
+	input := request.Records[0].SNS
+	payload := SlackPayload{
+		Text: fmt.Sprintf(&quot;%s: %s&quot;, input.Subject, input.Message),
+	}
+	payloadJSON, _ := json.Marshal(payload)
+	resp, err := http.Post(slackURL, &quot;application/json&quot;, bytes.NewBuffer(payloadJSON))
+	if err != nil {
+		return err
+	}
+	if resp.StatusCode != http.StatusOK {
+		return ErrInvalidStatusCode
+	}
+	log.Printf(&quot;message with id %s send&quot;, input.MessageID)
+	return nil
+}
+
+func main() {
+	lambda.Start(Handler)
+}
+</code></pre>
+
+<p>Celá implementace: <a href="https://github.com/zdebra/lambdaSNSToSlack">https://github.com/zdebra/lambdaSNSToSlack</a>.</p>
+
+<h2 id="slack-webhook-url">Slack Webhook URL</h2>
+
+<p>Tu získáte velmi jednoduše v dashboardu vaší Slack organizace. Vytvoříte nový Incoming webhook a dostanete tuto URL. Funkce ji očekává jako env proměnou <code>WEBHOOK_URL</code> (zadáte v konfiguraci lambdy).</p>
+
+<p>Doporučuji si to forknout a upravit text chodící do Slacku, protože tato raw message, kterou tam posílám já, není moc čitelná.</p>
+
+<h1 id="závěry">Závěry</h1>
+
+<p>Lambda je super jednoduchý, levný a bezúdržbový způsob jak vykonat nějaký kód. Zkompilovaná binárka golangu je navíc o dost rychlejší, než spouštění funkcí v jiných jazycích.</p>
+
+                <br>
+		<p><a href="https://zdebra.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+
