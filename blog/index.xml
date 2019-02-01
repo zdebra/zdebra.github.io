@@ -6,10 +6,19 @@
     <description>Recent content in Blog on Zdeněk Brabec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 28 Jan 2018 16:45:55 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 01 Feb 2018 16:45:55 +0200</lastBuildDate>
     
 	<atom:link href="https://www.zdebra.cz/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GoDays Berlin 2019</title>
+      <link>https://www.zdebra.cz/blog/godays-berlin-2019/</link>
+      <pubDate>Thu, 01 Feb 2018 16:45:55 +0200</pubDate>
+      
+      <guid>https://www.zdebra.cz/blog/godays-berlin-2019/</guid>
+      <description>It&amp;rsquo;s Wednesday, a cold winter morning and I am on my way to Factory Görlitzer Park, the venue of the very first Golang conference in Berlin. It is located in charismatic surroundings of the Kreuzberg district. I arrived yesterday after a 4-hour bus ride from Prague to my Berlin hotel, excited to attend a Golang conference for the first time. Through the cold streets of rising Kreuzberg, I crossed the river to the entrance of the Factory.</description>
+    </item>
     
     <item>
       <title>AWS Lambda a Golang</title>
@@ -19,15 +28,6 @@
       <guid>https://www.zdebra.cz/blog/aws-lambda-a-golang/</guid>
       <description>Lambda je služba od AWS, která slouží ke spouštění funkcí v cloudu. Jedná se o tzv. serverless architekturu, kdy k vykonání určitého kódu nepotřebujete složitě vytáčet virtuální mašinu. Namísto toho nadefinujete trigger (spouštěč) a svou funkci. Alternativou od jiného poskytovatele, než je Amazon, jsou Google Cloud Functions případě Azure Functions od Microsoftu.
 Kromě jednoduchosti celé služby je velkou výhodou také cena, kdy platíte za výpočetní čas v kombinaci s využitou pamětí vaší funkce.</description>
-    </item>
-    
-    <item>
-      <title>GoDays Berlin 2019</title>
-      <link>https://www.zdebra.cz/blog/godays-berlin-2019/</link>
-      <pubDate>Sun, 28 Jan 2018 16:45:55 +0200</pubDate>
-      
-      <guid>https://www.zdebra.cz/blog/godays-berlin-2019/</guid>
-      <description>It&amp;rsquo;s Wednesday, a cold winter morning and I am on my way to Factory Görlitzer Park, the venue of the very first Golang conference in Berlin. It is located in charismatic surroundings of the Kreuzberg district. I arrived yesterday after a 4-hour bus ride from Prague to my Berlin hotel, excited to attend a Golang conference for the first time. Through the cold streets of rising Kreuzberg, I crossed the river to the entrance of the Factory.</description>
     </item>
     
     <item>
