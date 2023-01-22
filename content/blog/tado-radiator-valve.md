@@ -74,3 +74,6 @@ Zařízení Tado nepodporují protokol Thread, díky kterému bychom nemuseli po
 
 Chytré radiátorové hlavice Tado jsou skvělým pomocníkem do vaši domácnosti. Vytknout se dá jen pár maličkostí jako je volba příliš měkkého plastu jako těla hlavice, uzavřený ekosystém či cena předplatného. Pozitiva však rozhodně převládají. Mezi ty největší patří skvělá appka se spoustou funkcí, design hlavic a velká šíře konfigurace.
 
+---
+
+_V případě, že chcete podpořit mojí tvorbu a chcete si pořídit Tado, zakupte si jej přes [tento odkaz](https://amzn.to/3H1roIq) na amazonu nebo mi [kupte kávu](https://www.buymeacoffee.com/zdebra)._
